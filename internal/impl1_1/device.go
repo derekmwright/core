@@ -151,14 +151,7 @@ func (v *DeviceVulkanDriver) GetImageSparseMemoryRequirements2(o core1_1.ImageSp
 		return nil, nil
 	}
 
-	outDataSlice := make([]*core1_1.SparseImageMemoryRequirements2, count)
-	for i := 0; i < count; i++ {
-		if outDataFactory != nil {
-			outDataSlice[i] = outDataFactory()
-		} else {
-			outDataSlice[i] = &core1_1.SparseImageMemoryRequirements2{}
-		}
-	}
+	outDataSlice := common.InitSlice[core1_1.SparseImageMemoryRequirements2](count, outDataFactory)
 
 	outDataPtr, err := common.AllocOutDataHeaderSlice[C.VkSparseImageMemoryRequirements2, *core1_1.SparseImageMemoryRequirements2](arena, outDataSlice)
 	if err != nil {

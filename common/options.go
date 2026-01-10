@@ -2,8 +2,9 @@ package common
 
 import "C"
 import (
-	"github.com/CannibalVox/cgoparam"
 	"unsafe"
+
+	"github.com/CannibalVox/cgoparam"
 )
 
 // CAllocatable is implemented by vkngwrapper structures that are not chainable (do not have
@@ -155,6 +156,20 @@ func allocNextOptions(allocator *cgoparam.Allocator, o Options) (unsafe.Pointer,
 	}
 
 	return AllocOptions(allocator, next)
+}
+
+func InitSlice[T any](count int, outDataFactory func() *T) []*T {
+	out := make([]*T, count)
+	for i := 0; i < count; i++ {
+		if outDataFactory != nil {
+			out[i] = outDataFactory()
+		} else {
+			var val T
+			out[i] = &val
+		}
+	}
+
+	return out
 }
 
 // AllocSlice is used to receive a C-allocated array for several CAllocator objects.

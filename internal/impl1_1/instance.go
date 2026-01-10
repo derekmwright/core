@@ -35,14 +35,7 @@ func (v *InstanceVulkanDriver) attemptEnumeratePhysicalDeviceGroups(outDataFacto
 		return nil, core1_0.VKSuccess, nil
 	}
 
-	outDataSlice := make([]*core1_1.PhysicalDeviceGroupProperties, count)
-	for i := 0; i < count; i++ {
-		if outDataFactory != nil {
-			outDataSlice[i] = outDataFactory()
-		} else {
-			outDataSlice[i] = &core1_1.PhysicalDeviceGroupProperties{}
-		}
-	}
+	outDataSlice := common.InitSlice[core1_1.PhysicalDeviceGroupProperties](count, outDataFactory)
 
 	outData, err := common.AllocOutDataHeaderSlice[C.VkPhysicalDeviceGroupProperties, *core1_1.PhysicalDeviceGroupProperties](arena, outDataSlice)
 	if err != nil {
