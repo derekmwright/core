@@ -61,6 +61,7 @@ type VkMemoryAllocateInfo C.VkMemoryAllocateInfo
 type VkMemoryBarrier C.VkMemoryBarrier
 type VkPipelineCacheCreateInfo C.VkPipelineCacheCreateInfo
 type VkPipelineLayoutCreateInfo C.VkPipelineLayoutCreateInfo
+type VkQueryType C.VkQueryType
 type VkQueryPoolCreateInfo C.VkQueryPoolCreateInfo
 type VkRenderPassBeginInfo C.VkRenderPassBeginInfo
 type VkRenderPassCreateInfo C.VkRenderPassCreateInfo
