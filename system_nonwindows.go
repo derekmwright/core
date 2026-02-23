@@ -8,10 +8,12 @@ package core
 */
 import "C"
 import (
+	"unsafe"
+
 	"github.com/vkngwrapper/core/v3/core1_0"
 )
 
-// CreateSystemLoader generates a Loader from a vulkan-1.dll/so located on the local file system
+// CreateSystemDriver generates a Loader from a vulkan-1.dll/so located on the local file system
 func CreateSystemDriver() (core1_0.GlobalDriver, error) {
 	return CreateDriverFromProcAddr(unsafe.Pointer(C.vkGetInstanceProcAddr))
 }
