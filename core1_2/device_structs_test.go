@@ -53,7 +53,7 @@ func TestBufferOpaqueCaptureAddressCreateOptions(t *testing.T) {
 	buffer, _, err := driver.CreateBuffer(
 		nil,
 		core1_0.BufferCreateInfo{
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.BufferOpaqueCaptureAddressCreateInfo{
 					OpaqueCaptureAddress: 13,
 				},
@@ -101,7 +101,7 @@ func TestMemoryOpaqueCaptureAddressAllocateOptions(t *testing.T) {
 	memory, _, err := driver.AllocateMemory(
 		nil,
 		core1_0.MemoryAllocateInfo{
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.MemoryOpaqueCaptureAddressAllocateInfo{
 					OpaqueCaptureAddress: 17,
 				},

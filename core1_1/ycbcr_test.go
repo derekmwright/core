@@ -58,7 +58,7 @@ func TestImagePlaneMemoryRequirementsOptions(t *testing.T) {
 	err := driver.GetImageMemoryRequirements2(
 		core1_1.ImageMemoryRequirementsInfo2{
 			Image: image,
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_1.ImagePlaneMemoryRequirementsInfo{
 					PlaneAspect: core1_1.ImageAspectPlane1,
 				},
@@ -120,7 +120,7 @@ func TestSamplerYcbcrConversionOptions(t *testing.T) {
 			Image:  image,
 			Format: core1_1.FormatB16G16R16G16HorizontalChroma,
 
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_1.SamplerYcbcrConversionInfo{
 					Conversion: ycbcr,
 				},
@@ -170,7 +170,7 @@ func TestSamplerYcbcrImageFormatOutData(t *testing.T) {
 		physicalDevice,
 		core1_1.PhysicalDeviceImageFormatInfo2{},
 		&core1_1.ImageFormatProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_1.SamplerYcbcrConversionImageFormatProperties{

@@ -65,7 +65,7 @@ func TestPhysicalDevice8BitStorageFeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{core1_2.PhysicalDevice8BitStorageFeatures{
+			NextOptions: common.NextOptions{Next: core1_2.PhysicalDevice8BitStorageFeatures{
 				StoragePushConstant8:              true,
 				UniformAndStorageBuffer8BitAccess: false,
 				StorageBuffer8BitAccess:           true,
@@ -107,7 +107,7 @@ func TestPhysicalDevice8BitStorageFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDevice8BitStorageFeatures{
@@ -166,7 +166,7 @@ func TestPhysicalDeviceBufferAddressFeaturesOptions(t *testing.T) {
 				},
 			},
 
-			NextOptions: common.NextOptions{core1_2.PhysicalDeviceBufferDeviceAddressFeatures{
+			NextOptions: common.NextOptions{Next: core1_2.PhysicalDeviceBufferDeviceAddressFeatures{
 				BufferDeviceAddress:            true,
 				BufferDeviceAddressMultiDevice: true,
 			}},
@@ -208,7 +208,7 @@ func TestPhysicalDeviceBufferAddressFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceBufferDeviceAddressFeatures{
@@ -281,7 +281,7 @@ func TestPhysicalDeviceDescriptorIndexingFeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{core1_2.PhysicalDeviceDescriptorIndexingFeatures{
+			NextOptions: common.NextOptions{Next: core1_2.PhysicalDeviceDescriptorIndexingFeatures{
 				ShaderInputAttachmentArrayDynamicIndexing:          true,
 				ShaderUniformTexelBufferArrayDynamicIndexing:       false,
 				ShaderStorageTexelBufferArrayDynamicIndexing:       true,
@@ -357,7 +357,7 @@ func TestPhysicalDeviceDescriptorIndexingFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceDescriptorIndexingFeatures{
@@ -428,7 +428,7 @@ func TestPhysicalDeviceHostQueryResetFeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceHostQueryResetFeatures{
 					HostQueryReset: true,
 				},
@@ -469,7 +469,7 @@ func TestPhysicalDeviceHostQueryResetFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -522,7 +522,7 @@ func TestPhysicalDeviceImagelessFramebufferFeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceImagelessFramebufferFeatures{
 					ImagelessFramebuffer: true,
 				},
@@ -563,7 +563,7 @@ func TestPhysicalDeviceImagelessFramebufferFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -616,7 +616,7 @@ func TestPhysicalDeviceScalarBlockLayoutFeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceScalarBlockLayoutFeatures{
 					ScalarBlockLayout: true,
 				},
@@ -657,7 +657,7 @@ func TestPhysicalDeviceScalarBlockLayoutFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -710,7 +710,7 @@ func TestPhysicalDeviceSeparateDepthStencilLayoutsFeaturesOptions(t *testing.T) 
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceSeparateDepthStencilLayoutsFeatures{
 					SeparateDepthStencilLayouts: true,
 				},
@@ -751,7 +751,7 @@ func TestPhysicalDeviceSeparateDepthStencilLayoutsFeaturesOutData(t *testing.T) 
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -805,7 +805,7 @@ func TestPhysicalDeviceShaderAtomicInt64FeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceShaderAtomicInt64Features{
 					ShaderBufferInt64Atomics: true,
 					ShaderSharedInt64Atomics: true,
@@ -848,7 +848,7 @@ func TestPhysicalDeviceShaderAtomicInt64FeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -903,7 +903,7 @@ func TestPhysicalDeviceShaderFloat16Int8FeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceShaderFloat16Int8Features{
 					ShaderInt8:    true,
 					ShaderFloat16: true,
@@ -946,7 +946,7 @@ func TestPhysicalDeviceShaderFloat16Int8FeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -1000,7 +1000,7 @@ func TestPhysicalDeviceShaderSubgroupExtendedTypesFeaturesOptions(t *testing.T) 
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceShaderSubgroupExtendedTypesFeatures{
 					ShaderSubgroupExtendedTypes: true,
 				},
@@ -1041,7 +1041,7 @@ func TestPhysicalDeviceShaderSubgroupExtendedTypesFeaturesOutData(t *testing.T) 
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -1094,7 +1094,7 @@ func TestPhysicalDeviceTimelineSemaphoreFeaturesOptions(t *testing.T) {
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceTimelineSemaphoreFeatures{
 					TimelineSemaphore: true,
 				},
@@ -1135,7 +1135,7 @@ func TestPhysicalDeviceTimelineSemaphoreFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)
@@ -1188,7 +1188,7 @@ func TestPhysicalDeviceUniformBufferStandardLayoutFeaturesOptions(t *testing.T) 
 					QueuePriorities: []float32{0},
 				},
 			},
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.PhysicalDeviceUniformBufferStandardLayoutFeatures{
 					UniformBufferStandardLayout: true,
 				},
@@ -1229,7 +1229,7 @@ func TestPhysicalDeviceUniformBufferStandardLayoutFeaturesOutData(t *testing.T) 
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		},
 	)
 	require.NoError(t, err)

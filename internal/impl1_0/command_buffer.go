@@ -11,6 +11,7 @@ import (
 
 	"github.com/CannibalVox/cgoparam"
 	"github.com/pkg/errors"
+
 	"github.com/vkngwrapper/core/v3/common"
 	"github.com/vkngwrapper/core/v3/core1_0"
 	"github.com/vkngwrapper/core/v3/loader"
@@ -782,6 +783,10 @@ func (v *DeviceVulkanDriver) CmdUpdateBuffer(commandBuffer core1_0.CommandBuffer
 	if !dstBuffer.Initialized() {
 		panic("dstBuffer cannot be uninitialized")
 	}
+	if dataSize > len(data) {
+		panic(fmt.Sprintf("dataSize (%d) is larger than the data slice length (%d)", dataSize, len(data)))
+	}
+	
 	arena := cgoparam.GetAlloc()
 	defer cgoparam.ReturnAlloc(arena)
 

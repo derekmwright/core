@@ -9,6 +9,7 @@ import (
 	"unsafe"
 
 	"github.com/CannibalVox/cgoparam"
+
 	"github.com/vkngwrapper/core/v3/common"
 )
 
@@ -55,6 +56,7 @@ func (o PipelineViewportStateCreateInfo) PopulateCPointer(allocator *cgoparam.Al
 	scissorsCount := len(o.Scissors)
 
 	createInfo.viewportCount = C.uint(viewportCount)
+	createInfo.pViewports = nil
 	if viewportCount > 0 {
 		viewportPtr := (*C.VkViewport)(allocator.Malloc(viewportCount * C.sizeof_struct_VkViewport))
 		viewportSlice := ([]C.VkViewport)(unsafe.Slice(viewportPtr, viewportCount))
@@ -70,6 +72,7 @@ func (o PipelineViewportStateCreateInfo) PopulateCPointer(allocator *cgoparam.Al
 	}
 
 	createInfo.scissorCount = C.uint(scissorsCount)
+	createInfo.pScissors = nil
 	if scissorsCount > 0 {
 		scissorPtr := (*C.VkRect2D)(allocator.Malloc(scissorsCount * C.sizeof_struct_VkRect2D))
 		scissorSlice := ([]C.VkRect2D)(unsafe.Slice(scissorPtr, scissorsCount))

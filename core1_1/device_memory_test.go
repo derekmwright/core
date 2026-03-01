@@ -215,7 +215,7 @@ func TestExternalMemoryBufferOptions(t *testing.T) {
 			Size:  1,
 			Usage: core1_0.BufferUsageStorageTexelBuffer,
 
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_1.ExternalMemoryBufferCreateInfo{
 					HandleTypes: core1_1.ExternalMemoryHandleTypeD3D11Texture,
 				},
@@ -269,7 +269,7 @@ func TestExternalMemoryImageOptions(t *testing.T) {
 			MipLevels:   1,
 			ArrayLayers: 3,
 
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_1.ExternalMemoryImageCreateInfo{
 					HandleTypes: core1_1.ExternalMemoryHandleTypeD3D12Heap,
 				},
@@ -328,13 +328,13 @@ func TestExternalImageFormatOptions(t *testing.T) {
 
 	var outData core1_1.ExternalImageFormatProperties
 	format := core1_1.ImageFormatProperties2{
-		NextOutData: common.NextOutData{&outData},
+		NextOutData: common.NextOutData{Next: &outData},
 	}
 	_, err := driver.GetPhysicalDeviceImageFormatProperties2(
 		physicalDevice,
 		core1_1.PhysicalDeviceImageFormatInfo2{
 			Format: core1_0.FormatA2B10G10R10UnsignedIntPacked,
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_1.PhysicalDeviceExternalImageFormatInfo{
 					HandleType: core1_1.ExternalMemoryHandleTypeOpaqueFD,
 				},
@@ -393,7 +393,7 @@ func TestExternalMemoryAllocateOptions(t *testing.T) {
 	memory, _, err := driver.AllocateMemory(nil, core1_0.MemoryAllocateInfo{
 		AllocationSize:  1,
 		MemoryTypeIndex: 3,
-		NextOptions: common.NextOptions{
+		NextOptions: common.NextOptions{Next:
 			core1_1.ExportMemoryAllocateInfo{
 				HandleTypes: core1_1.ExternalMemoryHandleTypeD3D11TextureKMT,
 			},

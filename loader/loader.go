@@ -1,7 +1,5 @@
 package loader
 
-import "C"
-
 /*
 #cgo noescape instance_proc_addr
 #cgo noescape device_proc_addr
@@ -200,6 +198,7 @@ import (
 	"unsafe"
 
 	"github.com/pkg/errors"
+
 	"github.com/vkngwrapper/core/v3/common"
 )
 
@@ -223,6 +222,7 @@ func createVulkanLoader(funcPtrs *C.DriverFuncPtrs, instance VkInstance, device 
 		var versionBits Uint32
 		_, err := loader.VkEnumerateInstanceVersion(&versionBits)
 		if err != nil {
+			C.free(unsafe.Pointer(funcPtrs))
 			return nil, err
 		}
 

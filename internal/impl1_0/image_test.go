@@ -214,7 +214,7 @@ func TestVulkanImage_SparseMemoryRequirements(t *testing.T) {
 		{
 			FormatProperties: core1_0.SparseImageFormatProperties{
 				AspectMask:       core1_0.ImageAspectColor,
-				ImageGranularity: core1_0.Extent3D{1, 3, 5},
+				ImageGranularity: core1_0.Extent3D{Width: 1, Height: 3, Depth: 5},
 				Flags:            core1_0.SparseImageFormatNonstandardBlockSize,
 			},
 			ImageMipTailFirstLod: 7,
@@ -225,7 +225,7 @@ func TestVulkanImage_SparseMemoryRequirements(t *testing.T) {
 		{
 			FormatProperties: core1_0.SparseImageFormatProperties{
 				AspectMask:       core1_0.ImageAspectDepth,
-				ImageGranularity: core1_0.Extent3D{19, 23, 29},
+				ImageGranularity: core1_0.Extent3D{Width: 19, Height: 23, Depth: 29},
 				Flags:            core1_0.SparseImageFormatAlignedMipSize,
 			},
 			ImageMipTailFirstLod: 31,

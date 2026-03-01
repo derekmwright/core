@@ -136,7 +136,7 @@ func TestDeviceGroupRenderPassBeginOptions(t *testing.T) {
 		core1_0.RenderPassBeginInfo{
 			RenderPass:  renderPass,
 			Framebuffer: framebuffer,
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_1.DeviceGroupRenderPassBeginInfo{
 					DeviceMask: 7,
 					DeviceRenderAreas: []core1_0.Rect2D{
@@ -207,7 +207,7 @@ func TestRenderPassMultiviewOptions(t *testing.T) {
 	})
 
 	renderPass, _, err := driver.CreateRenderPass(nil, core1_0.RenderPassCreateInfo{
-		NextOptions: common.NextOptions{
+		NextOptions: common.NextOptions{Next:
 			core1_1.RenderPassMultiviewCreateInfo{
 				ViewMasks:        []uint32{1, 2, 7},
 				ViewOffsets:      []int{11, 13},

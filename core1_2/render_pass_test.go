@@ -77,7 +77,7 @@ func TestAttachmentDescriptionStencilLayoutOptions(t *testing.T) {
 		core1_2.RenderPassCreateInfo2{
 			Attachments: []core1_2.AttachmentDescription2{
 				{
-					NextOptions: common.NextOptions{core1_2.AttachmentDescriptionStencilLayout{
+					NextOptions: common.NextOptions{Next: core1_2.AttachmentDescriptionStencilLayout{
 						StencilInitialLayout: core1_2.ImageLayoutDepthAttachmentOptimal,
 						StencilFinalLayout:   core1_2.ImageLayoutStencilReadOnlyOptimal,
 					}},
@@ -87,7 +87,7 @@ func TestAttachmentDescriptionStencilLayoutOptions(t *testing.T) {
 				{
 					InputAttachments: []core1_2.AttachmentReference2{
 						{
-							NextOptions: common.NextOptions{
+							NextOptions: common.NextOptions{Next:
 								core1_2.AttachmentReferenceStencilLayout{
 									StencilLayout: core1_2.ImageLayoutDepthAttachmentOptimal,
 								},
@@ -141,7 +141,7 @@ func TestRenderPassAttachmentBeginInfo(t *testing.T) {
 	})
 
 	err := driver.CmdBeginRenderPass(commandBuffer, core1_0.SubpassContentsInline, core1_0.RenderPassBeginInfo{
-		NextOptions: common.NextOptions{core1_2.RenderPassAttachmentBeginInfo{
+		NextOptions: common.NextOptions{Next: core1_2.RenderPassAttachmentBeginInfo{
 			Attachments: []core1_0.ImageView{imageView1, imageView2},
 		}},
 	})
@@ -201,7 +201,7 @@ func TestSubpassDescriptionDepthStencilResolveOptions(t *testing.T) {
 		core1_2.RenderPassCreateInfo2{
 			Subpasses: []core1_2.SubpassDescription2{
 				{
-					NextOptions: common.NextOptions{
+					NextOptions: common.NextOptions{Next:
 						core1_2.SubpassDescriptionDepthStencilResolve{
 							DepthResolveMode:   core1_2.ResolveModeMin,
 							StencilResolveMode: core1_2.ResolveModeSampleZero,

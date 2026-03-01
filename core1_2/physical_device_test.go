@@ -72,7 +72,7 @@ func TestPhysicalDeviceDriverOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&driverOutData},
+			NextOutData: common.NextOutData{Next: &driverOutData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceDriverProperties{
@@ -119,7 +119,7 @@ func TestPhysicalDeviceDepthStencilResolveOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceDepthStencilResolveProperties{
@@ -184,7 +184,7 @@ func TestPhysicalDeviceDescriptorIndexingOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t,
@@ -267,7 +267,7 @@ func TestPhysicalDeviceFloatControlsOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceFloatControlsProperties{
@@ -323,7 +323,7 @@ func TestPhysicalDeviceSamplerFilterMinmaxOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceSamplerFilterMinmaxProperties{
@@ -361,7 +361,7 @@ func TestPhysicalDeviceTimelineSemaphoreOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceTimelineSemaphoreProperties{
@@ -430,7 +430,7 @@ func TestPhysicalDeviceVulkan11OutData(t *testing.T) {
 	err = driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceVulkan11Properties{
@@ -550,7 +550,7 @@ func TestPhysicalDeviceVulkan12OutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceProperties2{
-			NextOutData: common.NextOutData{&outData},
+			NextOutData: common.NextOutData{Next: &outData},
 		})
 	require.NoError(t, err)
 	require.Equal(t, core1_2.PhysicalDeviceVulkan12Properties{
