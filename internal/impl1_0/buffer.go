@@ -18,9 +18,6 @@ func (v *DeviceVulkanDriver) DestroyBuffer(buffer core1_0.Buffer, allocationCall
 		panic("buffer cannot be uninitialized")
 	}
 
-	arena := cgoparam.GetAlloc()
-	defer cgoparam.ReturnAlloc(arena)
-
 	v.LoaderObj.VkDestroyBuffer(buffer.DeviceHandle(), buffer.Handle(), allocationCallbacks.Handle())
 }
 

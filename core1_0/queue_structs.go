@@ -207,7 +207,7 @@ func (b BindSparseInfo) PopulateCPointer(allocator *cgoparam.Allocator, prealloc
 		for i := 0; i < imageOpaqueBindCount; i++ {
 			if b.ImageOpaqueBinds[i].Image.Handle() == 0 {
 				return nil, errors.Errorf("SparseImageOpaqueMemoryBindInfo.Image must not be unset, but "+
-					"BindParseInfo.ImageOpaqueBinds element %d has an unset Image", i)
+					"BindSparseInfo.ImageOpaqueBinds element %d has an unset Image", i)
 			}
 			imageOpaqueBindSlice[i].image = C.VkImage(unsafe.Pointer(b.ImageOpaqueBinds[i].Image.Handle()))
 			bindCount := len(b.ImageOpaqueBinds[i].Binds)
@@ -232,7 +232,7 @@ func (b BindSparseInfo) PopulateCPointer(allocator *cgoparam.Allocator, prealloc
 		for i := 0; i < imageBindCount; i++ {
 			if b.ImageBinds[i].Image.Handle() == 0 {
 				return nil, errors.Errorf("SparseImageMemoryBindInfo.Image must not be unset, but "+
-					"BindParseInfo.ImageBinds element %d has an unset Image", i)
+					"BindSparseInfo.ImageBinds element %d has an unset Image", i)
 			}
 
 			imageBindSlice[i].image = C.VkImage(unsafe.Pointer(b.ImageBinds[i].Image.Handle()))

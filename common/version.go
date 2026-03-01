@@ -31,5 +31,5 @@ func (v Version) Patch() uint32 {
 
 // String generates an aesthetically-pleasing semantic version tag for a Version.
 func (v Version) String() string {
-	return fmt.Sprintf("v%d.%d.%d.", v.Major(), v.Minor(), v.Patch())
+	return fmt.Sprintf("v%d.%d.%d", v.Major(), v.Minor(), v.Patch())
 }

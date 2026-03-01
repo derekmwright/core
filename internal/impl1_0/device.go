@@ -66,7 +66,7 @@ func (v *DeviceVulkanDriver) ResetFences(fences ...core1_0.Fence) (common.VkResu
 		if fences[i].Handle() == 0 {
 			panic(fmt.Sprintf("element %d of slice fences is uninitialized", i))
 		}
-		if fences[i].Handle() == 0 {
+		if fences[i].DeviceHandle() != v.LoaderObj.DeviceHandle() {
 			panic(fmt.Sprintf("element %d of slice fences was not created by this driver's device", i))
 		}
 		fenceSlice[i] = fences[i].Handle()
@@ -663,7 +663,6 @@ func (v *DeviceVulkanDriver) AllocateCommandBuffers(o core1_0.CommandBufferAlloc
 	commandBufferPtr := (*loader.VkCommandBuffer)(arena.Malloc(o.CommandBufferCount * int(unsafe.Sizeof([1]loader.VkCommandBuffer{}))))
 
 	res, err := v.LoaderObj.VkAllocateCommandBuffers(device, (*loader.VkCommandBufferAllocateInfo)(createInfo), commandBufferPtr)
-	err = res.ToError()
 	if err != nil {
 		return nil, res, err
 	}

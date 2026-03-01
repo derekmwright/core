@@ -223,6 +223,7 @@ func createVulkanLoader(funcPtrs *C.DriverFuncPtrs, instance VkInstance, device 
 		var versionBits Uint32
 		_, err := loader.VkEnumerateInstanceVersion(&versionBits)
 		if err != nil {
+			C.free(unsafe.Pointer(funcPtrs))
 			return nil, err
 		}
 

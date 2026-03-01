@@ -782,6 +782,10 @@ func (v *DeviceVulkanDriver) CmdUpdateBuffer(commandBuffer core1_0.CommandBuffer
 	if !dstBuffer.Initialized() {
 		panic("dstBuffer cannot be uninitialized")
 	}
+	if dataSize > len(data) {
+		panic(fmt.Sprintf("dataSize (%d) is larger than the data slice length (%d)", dataSize, len(data)))
+	}
+
 	arena := cgoparam.GetAlloc()
 	defer cgoparam.ReturnAlloc(arena)
 

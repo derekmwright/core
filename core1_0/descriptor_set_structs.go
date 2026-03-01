@@ -131,7 +131,7 @@ func (o WriteDescriptorSet) PopulateCPointer(allocator *cgoparam.Allocator, prea
 	nextObj := o.Next
 	for nextObj != nil {
 		var isExtSource bool
-		extSource, isExtSource = o.Next.(WriteDescriptorSetExtensionSource)
+		extSource, isExtSource = nextObj.(WriteDescriptorSetExtensionSource)
 		if isExtSource {
 			break
 		}

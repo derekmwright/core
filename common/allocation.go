@@ -22,12 +22,14 @@ const (
 	SystemAllocationScopeInstance SystemAllocationScope = C.VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE
 )
 
-var systemAllocationScopeToString = map[SystemAllocationScope]string{
-	SystemAllocationScopeCommand:  "Command Scope",
-	SystemAllocationScopeObject:   "Object Scope",
-	SystemAllocationScopeCache:    "Cache Scope",
-	SystemAllocationScopeDevice:   "Device Scope",
-	SystemAllocationScopeInstance: "Instance Scope",
+func init() {
+	SystemAllocationScopeCommand.Register("Command Scope")
+	SystemAllocationScopeObject.Register("Object Scope")
+	SystemAllocationScopeCache.Register("Cache Scope")
+	SystemAllocationScopeDevice.Register("Device Scope")
+	SystemAllocationScopeInstance.Register("Instance Scope")
+
+	InternalAllocationTypeExecutable.Register("Executable Allocation")
 }
 
 const (
@@ -36,10 +38,6 @@ const (
 	// InternalAllocationTypeExecutable specifies that the allocation is intended for execution by the host.
 	InternalAllocationTypeExecutable InternalAllocationType = C.VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE
 )
-
-var internalAllocationTypeToString = map[InternalAllocationType]string{
-	InternalAllocationTypeExecutable: "Executable Allocation",
-}
 
 // AllocationFunction is an application-defined memory allocation function. It can be registered with
 // Vulkan via loader.CreateAllocationCallbacks in order to allow users to override the default Vulkan

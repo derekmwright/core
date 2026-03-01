@@ -544,7 +544,7 @@ type PhysicalDeviceSeparateDepthStencilLayoutsFeatures struct {
 
 func (o *PhysicalDeviceSeparateDepthStencilLayoutsFeatures) PopulateHeader(allocator *cgoparam.Allocator, preallocatedPointer unsafe.Pointer, next unsafe.Pointer) (unsafe.Pointer, error) {
 	if preallocatedPointer == nil {
-		preallocatedPointer = allocator.Malloc(int(unsafe.Sizeof(C.VkPhysicalDeviceShaderAtomicInt64Features{})))
+		preallocatedPointer = allocator.Malloc(int(unsafe.Sizeof(C.VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures{})))
 	}
 
 	info := (*C.VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures)(preallocatedPointer)
@@ -564,7 +564,7 @@ func (o *PhysicalDeviceSeparateDepthStencilLayoutsFeatures) PopulateOutData(cDat
 
 func (o PhysicalDeviceSeparateDepthStencilLayoutsFeatures) PopulateCPointer(allocator *cgoparam.Allocator, preallocatedPointer unsafe.Pointer, next unsafe.Pointer) (unsafe.Pointer, error) {
 	if preallocatedPointer == nil {
-		preallocatedPointer = allocator.Malloc(int(unsafe.Sizeof(C.VkPhysicalDeviceShaderAtomicInt64Features{})))
+		preallocatedPointer = allocator.Malloc(int(unsafe.Sizeof(C.VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures{})))
 	}
 
 	info := (*C.VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures)(preallocatedPointer)
@@ -1042,7 +1042,7 @@ func (o PhysicalDeviceVulkan11Features) PopulateCPointer(allocator *cgoparam.All
 	}
 
 	if o.UniformAndStorageBuffer16BitAccess {
-		info.uniformAndStorageBuffer16BitAccess = C.VkBool32(0)
+		info.uniformAndStorageBuffer16BitAccess = C.VkBool32(1)
 	}
 
 	if o.StoragePushConstant16 {
