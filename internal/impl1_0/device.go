@@ -12,6 +12,7 @@ import (
 
 	"github.com/CannibalVox/cgoparam"
 	"github.com/pkg/errors"
+
 	"github.com/vkngwrapper/core/v3/common"
 	"github.com/vkngwrapper/core/v3/core1_0"
 	"github.com/vkngwrapper/core/v3/loader"
@@ -66,7 +67,7 @@ func (v *DeviceVulkanDriver) ResetFences(fences ...core1_0.Fence) (common.VkResu
 		if fences[i].Handle() == 0 {
 			panic(fmt.Sprintf("element %d of slice fences is uninitialized", i))
 		}
-		if fences[i].Handle() == 0 {
+		if fences[i].DeviceHandle() != v.LoaderObj.DeviceHandle() {
 			panic(fmt.Sprintf("element %d of slice fences was not created by this driver's device", i))
 		}
 		fenceSlice[i] = fences[i].Handle()

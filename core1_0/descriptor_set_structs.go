@@ -10,6 +10,7 @@ import (
 
 	"github.com/CannibalVox/cgoparam"
 	"github.com/pkg/errors"
+
 	"github.com/vkngwrapper/core/v3/common"
 )
 
@@ -131,7 +132,7 @@ func (o WriteDescriptorSet) PopulateCPointer(allocator *cgoparam.Allocator, prea
 	nextObj := o.Next
 	for nextObj != nil {
 		var isExtSource bool
-		extSource, isExtSource = o.Next.(WriteDescriptorSetExtensionSource)
+		extSource, isExtSource = nextObj.(WriteDescriptorSetExtensionSource)
 		if isExtSource {
 			break
 		}

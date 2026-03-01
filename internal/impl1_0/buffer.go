@@ -8,6 +8,7 @@ import "C"
 import (
 	"github.com/CannibalVox/cgoparam"
 	"github.com/pkg/errors"
+
 	"github.com/vkngwrapper/core/v3/common"
 	"github.com/vkngwrapper/core/v3/core1_0"
 	"github.com/vkngwrapper/core/v3/loader"
@@ -17,10 +18,7 @@ func (v *DeviceVulkanDriver) DestroyBuffer(buffer core1_0.Buffer, allocationCall
 	if !buffer.Initialized() {
 		panic("buffer cannot be uninitialized")
 	}
-
-	arena := cgoparam.GetAlloc()
-	defer cgoparam.ReturnAlloc(arena)
-
+	
 	v.LoaderObj.VkDestroyBuffer(buffer.DeviceHandle(), buffer.Handle(), allocationCallbacks.Handle())
 }
 

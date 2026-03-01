@@ -54,7 +54,7 @@ func TestImageStencilUsageCreateOptions(t *testing.T) {
 	image, _, err := driver.CreateImage(
 		nil,
 		core1_0.ImageCreateInfo{
-			NextOptions: common.NextOptions{core1_2.ImageStencilUsageCreateInfo{
+			NextOptions: common.NextOptions{Next: core1_2.ImageStencilUsageCreateInfo{
 				StencilUsage: core1_0.ImageUsageColorAttachment,
 			}},
 		})
@@ -105,7 +105,7 @@ func TestImageFormatListCreateOptions(t *testing.T) {
 	image, _, err := driver.CreateImage(
 		nil,
 		core1_0.ImageCreateInfo{
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.ImageFormatListCreateInfo{
 					ViewFormats: []core1_0.Format{
 						core1_0.FormatA2B10G10R10UnsignedNormalizedPacked,

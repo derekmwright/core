@@ -767,12 +767,12 @@ func TestVulkanCommandBuffer_CmdSetScissor(t *testing.T) {
 
 	driver.CmdSetScissor(buffer,
 		core1_0.Rect2D{
-			Offset: core1_0.Offset2D{3, 5},
-			Extent: core1_0.Extent2D{7, 11},
+			Offset: core1_0.Offset2D{X: 3, Y: 5},
+			Extent: core1_0.Extent2D{Width: 7, Height: 11},
 		},
 		core1_0.Rect2D{
-			Offset: core1_0.Offset2D{13, 17},
-			Extent: core1_0.Extent2D{19, 23},
+			Offset: core1_0.Offset2D{X: 13, Y: 17},
+			Extent: core1_0.Extent2D{Width: 19, Height: 23},
 		},
 	)
 }
@@ -870,9 +870,9 @@ func TestVulkanCommandBuffer_CmdCopyImage(t *testing.T) {
 				BaseArrayLayer: 11,
 				LayerCount:     13,
 			},
-			SrcOffset: core1_0.Offset3D{17, 19, 23},
-			DstOffset: core1_0.Offset3D{29, 31, 37},
-			Extent:    core1_0.Extent3D{41, 43, 47},
+			SrcOffset: core1_0.Offset3D{X: 17, Y: 19, Z: 23},
+			DstOffset: core1_0.Offset3D{X: 29, Y: 31, Z: 37},
+			Extent:    core1_0.Extent3D{Width: 41, Height: 43, Depth: 47},
 		},
 		core1_0.ImageCopy{
 			SrcSubresource: core1_0.ImageSubresourceLayers{
@@ -887,9 +887,9 @@ func TestVulkanCommandBuffer_CmdCopyImage(t *testing.T) {
 				BaseArrayLayer: 71,
 				LayerCount:     73,
 			},
-			SrcOffset: core1_0.Offset3D{79, 83, 89},
-			DstOffset: core1_0.Offset3D{97, 101, 103},
-			Extent:    core1_0.Extent3D{107, 109, 113},
+			SrcOffset: core1_0.Offset3D{X: 79, Y: 83, Z: 89},
+			DstOffset: core1_0.Offset3D{X: 97, Y: 101, Z: 103},
+			Extent:    core1_0.Extent3D{Width: 107, Height: 109, Depth: 113},
 		},
 	)
 	require.NoError(t, err)
@@ -1266,16 +1266,16 @@ func TestVulkanCommandBuffer_CmdClearAttachments(t *testing.T) {
 			BaseArrayLayer: 17,
 			LayerCount:     19,
 			Rect: core1_0.Rect2D{
-				Offset: core1_0.Offset2D{23, 29},
-				Extent: core1_0.Extent2D{31, 37},
+				Offset: core1_0.Offset2D{X: 23, Y: 29},
+				Extent: core1_0.Extent2D{Width: 31, Height: 37},
 			},
 		},
 		{
 			BaseArrayLayer: 41,
 			LayerCount:     43,
 			Rect: core1_0.Rect2D{
-				Offset: core1_0.Offset2D{47, 53},
-				Extent: core1_0.Extent2D{59, 61},
+				Offset: core1_0.Offset2D{X: 47, Y: 53},
+				Extent: core1_0.Extent2D{Width: 59, Height: 61},
 			},
 		},
 	})
@@ -1384,8 +1384,8 @@ func TestVulkanCommandBuffer_CmdCopyImageToBuffer(t *testing.T) {
 				BaseArrayLayer: 11,
 				LayerCount:     13,
 			},
-			ImageOffset: core1_0.Offset3D{17, 19, 23},
-			ImageExtent: core1_0.Extent3D{29, 31, 37},
+			ImageOffset: core1_0.Offset3D{X: 17, Y: 19, Z: 23},
+			ImageExtent: core1_0.Extent3D{Width: 29, Height: 31, Depth: 37},
 		},
 	)
 	require.NoError(t, err)
@@ -1544,15 +1544,15 @@ func TestVulkanCommandBuffer_CmdResolveImage(t *testing.T) {
 				BaseArrayLayer: 3,
 				LayerCount:     5,
 			},
-			SrcOffset: core1_0.Offset3D{7, 11, 13},
+			SrcOffset: core1_0.Offset3D{X: 7, Y: 11, Z: 13},
 			DstSubresource: core1_0.ImageSubresourceLayers{
 				AspectMask:     core1_0.ImageAspectDepth,
 				MipLevel:       17,
 				BaseArrayLayer: 19,
 				LayerCount:     23,
 			},
-			DstOffset: core1_0.Offset3D{29, 31, 37},
-			Extent:    core1_0.Extent3D{41, 43, 47},
+			DstOffset: core1_0.Offset3D{X: 29, Y: 31, Z: 37},
+			Extent:    core1_0.Extent3D{Width: 41, Height: 43, Depth: 47},
 		},
 		core1_0.ImageResolve{
 			SrcSubresource: core1_0.ImageSubresourceLayers{
@@ -1561,15 +1561,15 @@ func TestVulkanCommandBuffer_CmdResolveImage(t *testing.T) {
 				BaseArrayLayer: 59,
 				LayerCount:     61,
 			},
-			SrcOffset: core1_0.Offset3D{67, 71, 73},
+			SrcOffset: core1_0.Offset3D{X: 67, Y: 71, Z: 73},
 			DstSubresource: core1_0.ImageSubresourceLayers{
 				AspectMask:     core1_0.ImageAspectStencil,
 				MipLevel:       79,
 				BaseArrayLayer: 83,
 				LayerCount:     89,
 			},
-			DstOffset: core1_0.Offset3D{97, 101, 103},
-			Extent:    core1_0.Extent3D{107, 109, 113},
+			DstOffset: core1_0.Offset3D{X: 97, Y: 101, Z: 103},
+			Extent:    core1_0.Extent3D{Width: 107, Height: 109, Depth: 113},
 		},
 	)
 	require.NoError(t, err)

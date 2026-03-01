@@ -52,7 +52,7 @@ func TestSamplerReductionModeCreateOptions(t *testing.T) {
 	sampler, _, err := driver.CreateSampler(
 		nil,
 		core1_0.SamplerCreateInfo{
-			NextOptions: common.NextOptions{core1_2.SamplerReductionModeCreateInfo{
+			NextOptions: common.NextOptions{Next: core1_2.SamplerReductionModeCreateInfo{
 				ReductionMode: core1_2.SamplerReductionModeMax,
 			}},
 		})

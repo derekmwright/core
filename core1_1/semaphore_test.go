@@ -52,7 +52,7 @@ func TestExportSemaphoreOptions(t *testing.T) {
 	})
 
 	semaphore, _, err := driver.CreateSemaphore(nil, core1_0.SemaphoreCreateInfo{
-		NextOptions: common.NextOptions{
+		NextOptions: common.NextOptions{Next:
 			core1_1.ExportSemaphoreCreateInfo{
 				HandleTypes: core1_1.ExternalSemaphoreHandleTypeOpaqueWin32KMT,
 			},

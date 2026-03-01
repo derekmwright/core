@@ -10,6 +10,7 @@ import (
 
 	"github.com/CannibalVox/cgoparam"
 	"github.com/pkg/errors"
+
 	"github.com/vkngwrapper/core/v3/common"
 )
 
@@ -44,6 +45,8 @@ func (o FramebufferCreateInfo) PopulateCPointer(allocator *cgoparam.Allocator, p
 	createInfo.sType = C.VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO
 	createInfo.flags = C.VkFramebufferCreateFlags(o.Flags)
 	createInfo.pNext = next
+	createInfo.renderPass = nil
+	createInfo.pAttachments = nil
 
 	if o.RenderPass.Initialized() {
 		createInfo.renderPass = (C.VkRenderPass)(unsafe.Pointer(o.RenderPass.Handle()))

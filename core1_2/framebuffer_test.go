@@ -89,7 +89,7 @@ func TestFramebufferAttachmentsCreateOptions(t *testing.T) {
 	framebuffer, _, err := driver.CreateFramebuffer(
 		nil,
 		core1_0.FramebufferCreateInfo{
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_2.FramebufferAttachmentsCreateInfo{
 					AttachmentImageInfos: []core1_2.FramebufferAttachmentImageInfo{
 						{

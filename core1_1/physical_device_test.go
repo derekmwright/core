@@ -69,7 +69,7 @@ func TestPhysicalDeviceIDOutData(t *testing.T) {
 
 	var properties core1_1.PhysicalDeviceProperties2
 	var outData core1_1.PhysicalDeviceIDProperties
-	properties.NextOutData = common.NextOutData{&outData}
+	properties.NextOutData = common.NextOutData{Next: &outData}
 
 	err = driver.GetPhysicalDeviceProperties2(
 		physicalDevice,
@@ -156,7 +156,7 @@ func TestMultiviewPropertiesOutData(t *testing.T) {
 
 	var outData core1_1.PhysicalDeviceMultiviewProperties
 	properties := core1_1.PhysicalDeviceProperties2{
-		NextOutData: common.NextOutData{&outData},
+		NextOutData: common.NextOutData{Next: &outData},
 	}
 
 	err := driver.GetPhysicalDeviceProperties2(physicalDevice, &properties)
@@ -408,7 +408,7 @@ func TestMultiviewFeaturesOptions(t *testing.T) {
 				QueuePriorities: []float32{3, 2, 1},
 			},
 		},
-		NextOptions: common.NextOptions{
+		NextOptions: common.NextOptions{Next:
 			core1_1.PhysicalDeviceMultiviewFeatures{
 				Multiview:                   true,
 				MultiviewTessellationShader: true,
@@ -451,7 +451,7 @@ func TestMultiviewFeaturesOutData(t *testing.T) {
 
 	var outData core1_1.PhysicalDeviceMultiviewFeatures
 	features := core1_1.PhysicalDeviceFeatures2{
-		NextOutData: common.NextOutData{&outData},
+		NextOutData: common.NextOutData{Next: &outData},
 	}
 
 	err := driver.GetPhysicalDeviceFeatures2(physicalDevice, &features)
@@ -514,7 +514,7 @@ func TestPhysicalDeviceProtectedMemoryFeaturesOptions(t *testing.T) {
 				QueuePriorities: []float32{3, 2, 1},
 			},
 		},
-		NextOptions: common.NextOptions{
+		NextOptions: common.NextOptions{Next:
 			core1_1.PhysicalDeviceProtectedMemoryFeatures{
 				ProtectedMemory: true,
 			},
@@ -553,7 +553,7 @@ func TestPhysicalDeviceProtectedMemoryFeaturesOutData(t *testing.T) {
 
 	var outData core1_1.PhysicalDeviceProtectedMemoryFeatures
 	features := core1_1.PhysicalDeviceFeatures2{
-		NextOutData: common.NextOutData{&outData},
+		NextOutData: common.NextOutData{Next: &outData},
 	}
 
 	err := driver.GetPhysicalDeviceFeatures2(physicalDevice, &features)
@@ -609,7 +609,7 @@ func TestSamplerYcbcrFeaturesOptions(t *testing.T) {
 				},
 			},
 
-			NextOptions: common.NextOptions{
+			NextOptions: common.NextOptions{Next:
 				core1_1.PhysicalDeviceSamplerYcbcrConversionFeatures{
 					SamplerYcbcrConversion: true,
 				},
@@ -651,7 +651,7 @@ func TestSamplerYcbcrFeaturesOutData(t *testing.T) {
 	err := driver.GetPhysicalDeviceFeatures2(
 		physicalDevice,
 		&core1_1.PhysicalDeviceFeatures2{
-			NextOutData: common.NextOutData{
+			NextOutData: common.NextOutData{Next:
 				&outData,
 			},
 		})
@@ -711,7 +711,7 @@ func TestPhysicalDeviceShaderDrawParametersFeaturesOptions(t *testing.T) {
 				QueuePriorities: []float32{3, 2, 1},
 			},
 		},
-		NextOptions: common.NextOptions{
+		NextOptions: common.NextOptions{Next:
 			core1_1.PhysicalDeviceShaderDrawParametersFeatures{
 				ShaderDrawParameters: true,
 			},
@@ -750,7 +750,7 @@ func TestPhysicalDeviceShaderDrawParametersFeaturesOutData(t *testing.T) {
 
 	var outData core1_1.PhysicalDeviceShaderDrawParametersFeatures
 	features := core1_1.PhysicalDeviceFeatures2{
-		NextOutData: common.NextOutData{&outData},
+		NextOutData: common.NextOutData{Next: &outData},
 	}
 
 	err := driver.GetPhysicalDeviceFeatures2(physicalDevice, &features)

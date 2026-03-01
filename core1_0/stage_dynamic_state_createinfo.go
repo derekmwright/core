@@ -9,6 +9,7 @@ import (
 	"unsafe"
 
 	"github.com/CannibalVox/cgoparam"
+
 	"github.com/vkngwrapper/core/v3/common"
 )
 
@@ -126,6 +127,7 @@ func (o PipelineDynamicStateCreateInfo) PopulateCPointer(allocator *cgoparam.All
 
 	stateCount := len(o.DynamicStates)
 	createInfo.dynamicStateCount = C.uint32_t(stateCount)
+	createInfo.pDynamicStates = nil
 
 	if stateCount > 0 {
 		statesPtr := (*C.VkDynamicState)(allocator.Malloc(stateCount * int(unsafe.Sizeof(C.VkDynamicState(0)))))
